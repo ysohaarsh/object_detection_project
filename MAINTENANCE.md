@@ -1,0 +1,1 @@
+- 2026-10-17: add .gitignore, untrack __pycache__/.idea, add requirements.txt, fix README paths (PR)

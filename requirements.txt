@@ -1,0 +1,9 @@
+ultralytics>=8.0,<9
+opencv-python>=4.8,<5
+numpy>=1.24,<3
+cvzone>=1.6,<2
+# SORT tracker (sort.py) dependencies
+scipy>=1.10,<2
+filterpy>=1.4.5,<2
+scikit-image>=0.21,<1
+matplotlib>=3.7,<4
