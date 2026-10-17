@@ -24,15 +24,15 @@ To run this application, you'll need the following dependencies:
 You can install most of these dependencies using pip:
 
 ```bash
-pip install opencv-python numpy cvzone
+pip install -r requirements.txt
 ```
 
 You can download the YOLO pre-trained model weights from [YOLO website](https://pjreddie.com/darknet/yolo/).
 
 ## Folder Structure
 
-- `car_counter/`: Contains the car counting application.
-- `people_counter/`: Contains the people counting application for the escalator.
+- `carCounter/`: Contains the car counting application.
+- `peopleCounter/`: Contains the people counting application for the escalator.
 
 ## Usage
 
@@ -54,20 +54,21 @@ cd car-and-people-counter
 5. Run the car counter:
 
 ```bash
-python car_counter.py
+cd carCounter
+python Carcounter.py
 ```
 
 The car counter application will open a video stream and display the car counting results in real-time. You can customize the regions of interest, fonts, and other parameters within the code.
 
 ### People Counter
 
-1. Navigate to the `people_counter/` folder:
+1. Navigate to the `peopleCounter/` folder:
 
 ```bash
-cd people_counter
+cd peopleCounter
 ```
 
-2. Place your YOLO pre-trained model weights (`yolov8l.pt`) in the `people_counter/` folder.
+2. Place your YOLO pre-trained model weights (`yolov8l.pt`) in the `peopleCounter/` folder.
 
 3. Create a mask image named `mask.png` to define the region of interest (ROI) for people counting.
 
@@ -76,14 +77,14 @@ cd people_counter
 5. Run the people counter for the escalator:
 
 ```bash
-python people_counter.py
+python People-Counter.py
 ```
 
 The people counter application will open a video stream and display the people counting results in real-time as they move up and down on the escalator. You can customize the regions of interest, fonts, and other parameters within the code.
 
 ## Configuration
 
-You can customize the following parameters in the respective `.py` files (`car_counter.py` and `people_counter.py`):
+You can customize the following parameters in the respective `.py` files (`Carcounter.py` and `People-Counter.py`):
 
 - Video source (e.g., a video file or camera stream).
 - YOLO model weights file path (`YOLO_WEIGHTS`).
@@ -105,8 +106,3 @@ You can customize the following parameters in the respective `.py` files (`car_c
 
 - This project uses the YOLO object detection model, courtesy of Joseph Redmon and Ali Farhadi. [YOLO website](https://pjreddie.com/darknet/yolo/)
 - The SORT (Simple Online and Realtime Tracking) algorithm is used for object tracking. [SORT GitHub](https://github.com/abewley/sort)
-
-```
-
-Feel free to replace `your-username` with your actual GitHub username when sharing this on your GitHub repository. This updated README includes information about both the car counter and the people counter applications, with separate usage instructions for each.
-```

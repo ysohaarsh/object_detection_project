@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.venv/
+venv/
+.env
+
+# Large local assets (see README)
+*.pt
+*.mp4
+Videos/
+yoloWeights/
