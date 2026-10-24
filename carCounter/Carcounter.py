@@ -31,7 +31,7 @@ model = YOLO(YOLO_WEIGHTS)
 
 # Load mask and graphics
 mask = cv2.imread(MASK_FILE)
-graphics = cv2.imread(GRAPHICS_FILE, cv2.IMREAD_UNCHANGED)
+imgGraphics = cv2.imread(GRAPHICS_FILE, cv2.IMREAD_UNCHANGED)
 
 # Tracking setup
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
@@ -50,7 +50,6 @@ while True:
 
     # Overlay graphics on the image
 
-    imgGraphics = cv2.imread("graphics.png", cv2.IMREAD_UNCHANGED)
     img = cvzone.overlayPNG(img, imgGraphics, (0, 0))
 
     # Perform object detection
@@ -73,8 +72,7 @@ while True:
             cls = int(box.cls[0])
             currentClass = CLASS_NAMES[cls]
 
-            if currentClass == "car" or currentClass == "truck" or currentClass == "bus" \
-                    or currentClass == "motorbike" and conf > 0.3:
+            if currentClass in ("car", "truck", "bus", "motorbike") and conf > 0.3:
                 # cvzone.putTextRect(img, f'{currentClass} {conf}', (max(0, x1), max(35, y1)),
                 #                    scale=0.6, thickness=1, offset=3)
                 # cvzone.cornerRect(img, (x1, y1, w, h), l=9, rt=5)

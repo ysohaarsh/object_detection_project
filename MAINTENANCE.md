@@ -1,0 +1,1 @@
+- 2026-10-24: fix car confidence filter precedence and end-of-video crash in people counter, load overlay once (PR)

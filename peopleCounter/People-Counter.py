@@ -22,6 +22,7 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               ]
 
 mask = cv2.imread("mask.png")
+imgGraphics = cv2.imread("graphics.png", cv2.IMREAD_UNCHANGED)
 
 # Tracking
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
@@ -34,9 +35,10 @@ totalCountDown = []
 
 while True:
     success, img = cap.read()
+    if not success:
+        break
     imgRegion = cv2.bitwise_and(img, mask)
 
-    imgGraphics = cv2.imread("graphics.png", cv2.IMREAD_UNCHANGED)
     img = cvzone.overlayPNG(img, imgGraphics, (730, 260))
     results = model(imgRegion, stream=True)
 
@@ -97,3 +99,6 @@ while True:
     cv2.imshow("Image", img)
     # cv2.imshow("ImageRegion", imgRegion)
     cv2.waitKey(1)
+
+cap.release()
+cv2.destroyAllWindows()
